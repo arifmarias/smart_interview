@@ -1,0 +1,8 @@
+streamlit
+SpeechRecognition
+ipykernel
+pyaudio
+sounddevice
+noisereduce
+torch
+vosk
