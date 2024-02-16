@@ -1,5 +1,5 @@
 ## This is a dev and fun project for Smart Interview
-Using openai whisper speech2text conversion
+Using **openai whisper** speech2text conversion. Also use **Streamlit** for application creation purpose. 
 ### Setup
 #### Setup your Audio
 1. Use VB-Cable
@@ -9,9 +9,9 @@ Using openai whisper speech2text conversion
 5. Multi-Output Device select "Mac Speaker" and "VB-Cable"
 
 #### Setup your Environment 
-1. pip install -U openai-whisper
+1. **pip install -U openai-whisper**
 <br/>on MacOS using Homebrew (https://brew.sh/)
-2. brew install ffmpeg
+2. **brew install ffmpeg**
 3. whisper model use "small" (fairly good transcriber)
 4. small piece of code to use the whisper
 ```
