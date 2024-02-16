@@ -10,7 +10,7 @@ Using openai whisper speech2text conversion
 
 #### Setup your Environment 
 1. pip install -U openai-whisper
-on MacOS using Homebrew (https://brew.sh/)
+<br/>on MacOS using Homebrew (https://brew.sh/)
 2. brew install ffmpeg
 3. whisper model use "small" (fairly good transcriber)
 4. small piece of code to use the whisper
