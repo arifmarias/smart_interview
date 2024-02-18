@@ -5,10 +5,18 @@ import noisereduce as nr
 import soundfile as sf
 import whisper
 import os
+import google.generativeai as genai
+from google.cloud import aiplatform
+import vertexai
+from vertexai.generative_models import GenerativeModel, ChatSession
+
 
 # Create a recognizer instance
 r = sr.Recognizer()
-
+API_KEY = ''
+genai.configure(api_key = API_KEY)
+model = genai.GenerativeModel("gemini-pro")
+chat = model.start_chat()
 def listen_and_transcribe():
     # Use the default microphone as the audio source
     with sr.Microphone() as source:
@@ -28,10 +36,20 @@ def listen_and_transcribe():
                 audio_data = "/Users/m1/Documents/DS Project/smart_interview/temp.wav"
                 result = model.transcribe(audio_data, fp16=False)
                 st.write(result["text"])
-                 
-                           
+                st.write("Get Response from GenAI")
+                st.write(get_chat_response(chat,result["text"]))                  
         except:
             st.write("Speech Recognition could not understand audio")
+
+
+def get_chat_response(chat: ChatSession, prompt: str) -> str:
+    text_response = []
+    responses = chat.send_message(prompt, stream=True)
+    for chunk in responses:
+        text_response.append(chunk.text)
+    return "".join(text_response)
+
+
 def main():
     st.title("Real-time Speech-to-Text")
     st.button("Start Listening", on_click=listen_and_transcribe)

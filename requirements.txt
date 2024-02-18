@@ -5,4 +5,6 @@ pyaudio
 sounddevice
 noisereduce
 torch
-vosk
+google.generativeai
+vertexai
+Vertex
